@@ -12,6 +12,7 @@ module Asaas
     attribute :externalReference, Types::Coercible::String.optional.default(nil)
     attribute :installment, Types::Coercible::String.optional.default(nil)
     attribute :installmentCount, Types::Coercible::String.optional.default(nil)
+    attribute :installmentNumber, Types::Coercible::Integer.optional.default(nil)
     attribute :installmentValue, Types::Coercible::String.optional.default(nil)
     attribute :discount, Discount.optional.default(nil)
     attribute :interest, Interest.optional.default(nil)
