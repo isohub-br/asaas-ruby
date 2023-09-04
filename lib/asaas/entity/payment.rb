@@ -22,6 +22,7 @@ module Asaas
       attribute :boletoUrl, String
       attribute :installment, String
       attribute :installmentCount, Integer
+      attribute :installmentNumber, Integer
       attribute :installmentValue, Float
       attribute :creditCardHolderName, String
       attribute :creditCardNumber, String
