@@ -1,13 +1,13 @@
 module Asaas
   class FinancialTransaction < Model
-    attribute :transform_keys(&,to_sym)
-    
-    attribute :id, Types::Coercible::String.optional.default(nil)
-    attribute :value, Types::Coercible::String.optional.default(nil)
-    attribute :balance, Types::Coercible::String.optional.default(nil)
-    attribute :type, Types::Coercible::String.optional.default(nil)
-    attribute :date, Types::Coercible::String.optional.default(nil)
-    attribute :description, Types::Coercible::String.optional.default(nil)
+    transform_keys(&:to_sym)
+
+    attribute :id, Types::Coercible::String
+    attribute :value, Types::Coercible::Float
+    attribute :balance, Types::Coercible::Float
+    attribute :type, Types::Coercible::String
+    attribute :date, Types::Coercible::String
+    attribute :description, Types::Coercible::String
     attribute :paymentId, Types::Coercible::String.optional.default(nil)
     attribute :transferId, Types::Coercible::String.optional.default(nil)
     attribute :anticipationId, Types::Coercible::String.optional.default(nil)
