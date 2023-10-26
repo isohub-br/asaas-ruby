@@ -16,9 +16,9 @@ module Asaas
       protected
       def convert_data_to_entity(type)
         if Asaas::Configuration.api_version == 2
-          "Asaas::Entity::#{type.capitalize}".constantize
+          "Asaas::Entity::#{type.classify}".constantize
         else
-          "Asaas::#{type.capitalize}".constantize
+          "Asaas::#{type.classify}".constantize
         end
       rescue
         Asaas::Entity::Base

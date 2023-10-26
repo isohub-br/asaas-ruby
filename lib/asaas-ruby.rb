@@ -27,6 +27,7 @@ module Asaas
   autoload :Webhook, 'asaas/models/webhook'
   autoload :Account, 'asaas/models/account'
   autoload :Transfer, 'asaas/models/transfer'
+  autoload :FinancialTransaction, 'asaas/models/financial_transaction'
 
   class << self
 

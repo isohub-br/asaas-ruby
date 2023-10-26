@@ -68,6 +68,8 @@ module Asaas
             res = response_not_found
           when 500
             res = response_internal_server_error
+          when 403
+            res = response_forbidden
           else
             res = response_not_found
         end
@@ -87,7 +89,7 @@ module Asaas
       def request(method, params = {}, body = nil)
         body = body.to_h
         body = body.delete_if { |k, v| v.nil? || v.to_s.empty? }
-        body = body.to_json if body.present?
+        body = body.to_json if body != {}
 
         @response = Typhoeus::Request.new(
             parse_url(params.fetch(:id, false)),
@@ -131,6 +133,12 @@ module Asaas
       def response_not_found
         error = Asaas::Entity::Error.new
         error.errors << Asaas::Entity::ErrorItem.new(code: 'not_found', description: 'Object not found')
+        error
+      end
+
+      def response_forbidden
+        error = Asaas::Entity::Error.new
+        error.errors << Asaas::Entity::ErrorItem.new(code: 'forbidden', description: 'Forbidden')
         error
       end
 
