@@ -1,7 +1,5 @@
 module Asaas
   class FinancialTransaction < Model
-    transform_keys(&:to_sym)
-
     attribute :id, Types::Coercible::String
     attribute :value, Types::Coercible::Float
     attribute :balance, Types::Coercible::Float
@@ -13,7 +11,7 @@ module Asaas
     attribute :anticipationId, Types::Coercible::String.optional.default(nil)
     attribute :billId, Types::Coercible::String.optional.default(nil)
     attribute :invoiceId, Types::Coercible::String.optional.default(nil)
-    attribute :paymentDunningId, Types::Coercible::String.optional.default(nil),
+    attribute :paymentDunningId, Types::Coercible::String.optional.default(nil)
     attribute :creditBureauReportId, Types::Coercible::String.optional.default(nil)
   end
 end

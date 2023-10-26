@@ -1,0 +1,57 @@
+{
+  "object": "list",
+  "hasMore": false,
+  "totalCount": 3,
+  "limit": 10,
+  "offset": 0,
+  "data": [
+    {
+      "object": "financialTransaction",
+      "id": "ftn_000015274322",
+      "value": -5,
+      "balance": 3772.81,
+      "type": "TRANSFER_FEE",
+      "date": "2019-07-16",
+      "description": "Taxa de transferência para conta bancária",
+      "paymentId": null,
+      "transferId": "b26df110-498b-40ba-b5c6-1428de4d59c7",
+      "anticipationId": null,
+      "billId": null,
+      "invoiceId": null,
+      "paymentDunningId": null,
+      "creditBureauReportId": null
+    },
+    {
+      "object": "financialTransaction",
+      "id": "ftn_000015278797",
+      "value": -50,
+      "balance": 3777.81,
+      "type": "TRANSFER",
+      "date": "2019-07-16",
+      "description": "Transferência para conta bancária",
+      "paymentId": null,
+      "transferId": "3b6c6838-54c5-434a-8a27-c577e278ae53",
+      "anticipationId": null,
+      "billId": null,
+      "invoiceId": null,
+      "paymentDunningId": null,
+      "creditBureauReportId": null
+    },
+    {
+      "object": "financialTransaction",
+      "id": "ftn_000015278794",
+      "value": -0.55,
+      "balance": 3827.81,
+      "type": "PHONE_CALL_NOTIFICATION_FEE",
+      "date": "2019-07-16",
+      "description": "Taxa de ligação para o cliente João da Silva referente a cobrança 00013218 vencida.",
+      "paymentId": "pay_156621686548884",
+      "transferId": null,
+      "anticipationId": null,
+      "billId": null,
+      "invoiceId": null,
+      "paymentDunningId": null,
+      "creditBureauReportId": null
+    }
+  ]
+}
