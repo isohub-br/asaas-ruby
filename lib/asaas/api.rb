@@ -11,5 +11,6 @@ module Asaas
     autoload :Transfer, 'asaas/api/transfer'
     autoload :Document, 'asaas/api/document'
     autoload :FinancialTransaction, 'asaas/api/financial_transaction'
+    autoload :ReceivableAnticipation, 'asaas/api/receivable_anticipation'
   end
 end

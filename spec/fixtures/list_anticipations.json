@@ -1,0 +1,41 @@
+{
+  "object": "list",
+  "hasMore": false,
+  "totalCount": 2,
+  "limit": 10,
+  "offset": 0,
+  "data": [
+    {
+      "object": "receivableAnticipation",
+      "id": "9e7d8639-350f-45c0-8bc3-d4ddc5f4ebac",
+      "installment": null,
+      "payment": "pay_626366773834",
+      "status": "PENDING",
+      "anticipationDate": "2019-05-20",
+      "dueDate": "2019-05-26",
+      "requestDate": "2019-05-14",
+      "fee": "2.33",
+      "anticipationDays": "6",
+      "netValue": "73.68",
+      "totalValue": "80.00",
+      "value": "76.01",
+      "denialObservation": null
+    },
+    {
+      "object": "receivableAnticipation",
+      "id": "777eb7c8-b1a2-4356-8fd8-a1b0644b5282",
+      "installment": "5a2c890b-dd63-4b5a-9169-96c8d7828f4c",
+      "payment": null,
+      "status": "APPROVED",
+      "anticipationDate": "2019-05-21",
+      "dueDate": "2019-05-27",
+      "requestDate": "2019-04-08",
+      "fee": "3.33",
+      "anticipationDays": "6",
+      "netValue": "92.68",
+      "totalValue": "100.00",
+      "value": "96.01",
+      "denialObservation": null
+    }
+  ]
+}
