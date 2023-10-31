@@ -35,7 +35,7 @@ RSpec.describe Asaas::Api::ReceivableAnticipation do
     expect(response.data.first).to be_a(Asaas::ReceivableAnticipation)
   end
 
-  it 'get anticipation' do
+  it 'gets anticipation' do
     stub_request(:get, "https://sandbox.asaas.com/api/v3/anticipations/id")
       .with(query: {id: 'id'}, headers: headers)
       .to_return(status: 200, body: get_anticipation_example_response)
@@ -45,8 +45,8 @@ RSpec.describe Asaas::Api::ReceivableAnticipation do
     expect(response).to be_a(Asaas::ReceivableAnticipation)
   end
 
-  it 'simulate anticipation' do
-    body = {}
+  it 'simulates anticipation' do
+    body = {payment: 'pay_626366773834'}
 
     stub_request(:post, "https://sandbox.asaas.com/api/v3/anticipations/simulate")
       .with(body: body, headers: headers)
@@ -58,7 +58,7 @@ RSpec.describe Asaas::Api::ReceivableAnticipation do
     expect(response.empty?).to be false
   end
 
-  it 'sign agreement' do
+  it 'signs agreement' do
     stub_request(:post, "https://sandbox.asaas.com/api/v3/anticipations/agreement/sign")
       .with(body: {agreed: true}.to_json, headers: headers)
       .to_return(status: 200, body: sign_agreement_example_response)
@@ -67,5 +67,6 @@ RSpec.describe Asaas::Api::ReceivableAnticipation do
 
     expect(response).to be_a(Asaas::Entity::Base)
     expect(response.empty?).to be false
+    expect(response.agreed).to be true
   end
 end
