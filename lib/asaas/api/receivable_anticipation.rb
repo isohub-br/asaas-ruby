@@ -5,17 +5,17 @@ module Asaas
         super(token, api_version, '/anticipations')
       end
 
-      def simulate(params)
-        @endpoint = '/anticipations/simulate'
+      def simulate(body)
+        @route = '/anticipations/simulate'
 
-        request(:post, params)
+        request(:post, {}, body)
         parse_response
       end
 
       def sign_agreement
-        @endpoint = 'anticipations/agreement/sign'
+        @route = 'anticipations/agreement/sign'
 
-        request(:post, {agreed: true})
+        request(:post, {}, {agreed: true})
         parse_response
       end
     end
