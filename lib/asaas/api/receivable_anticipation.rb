@@ -13,7 +13,7 @@ module Asaas
       end
 
       def sign_agreement
-        @route = 'anticipations/agreement/sign'
+        @route = '/anticipations/agreement/sign'
 
         request(:post, {}, {agreed: true})
         parse_response
