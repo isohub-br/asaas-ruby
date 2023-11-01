@@ -5,6 +5,21 @@ module Asaas
         super(token, api_version, '/anticipations')
       end
 
+      def create(body)
+        @response = Typhoeus::Request.new(
+          parse_url,
+          method: :post,
+          body: body,
+          headers: {
+            'access_token': @token || Asaas::Configuration.token,
+            'Content-Type': 'multipart/form-data'
+            },
+          verbose: Asaas::Configuration.debug
+        ).run
+
+        parse_response
+      end
+
       def simulate(body)
         @route = '/anticipations/simulate'
 
