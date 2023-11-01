@@ -55,7 +55,7 @@ RSpec.describe Asaas::Api::ReceivableAnticipation do
     response = asaas_client.anticipations.simulate(body)
 
     expect(response).to be_a(Asaas::ReceivableAnticipation)
-    expect(response.value).not_to be_empty
+    expect(response.value).to be_kind_of Float
   end
 
   it 'signs agreement' do
