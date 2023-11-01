@@ -69,4 +69,25 @@ RSpec.describe Asaas::Api::ReceivableAnticipation do
     expect(response.empty?).to be false
     expect(response.agreed).to be true
   end
+
+  it 'requests anticipation' do
+    body = {payment: 'id'}
+    stub_request(:post, "https://sandbox.asaas.com/api/v3/anticipations").
+    with(
+      body: {"payment"=>"id"},
+      headers: {
+        'Accept'=>'*/*',
+        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'Access-Token'=>'544333290e93b9bbcd8107b3d9586e3bef774fb41584790a5ff061e4e0392ed5',
+        'Content-Length'=>'10',
+        'Content-Type'=>'application/x-www-form-urlencoded',
+        'Host'=>'sandbox.asaas.com',
+        'User-Agent'=>'rest-client/2.1.0 (linux x86_64) ruby/2.7.4p191'
+      }).
+    to_return(status: 200, body:get_anticipation_example_response, headers: {})
+
+    response = asaas_client.anticipations.create(body)
+
+    expect(response).to be_a(Asaas::ReceivableAnticipation)
+  end
 end

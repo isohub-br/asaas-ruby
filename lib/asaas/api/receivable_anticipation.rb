@@ -8,16 +8,14 @@ module Asaas
       def create(body)
         @default_class = Asaas::ReceivableAnticipation
 
-        @response = Typhoeus::Request.new(
-          parse_url,
-          method: :post,
-          body: body,
-          headers: {
-            'access_token': @token || Asaas::Configuration.token,
-            'Content-Type': 'multipart/form-data'
-            },
-          verbose: Asaas::Configuration.debug
-        ).run
+        @response = RestClient.post(
+          parse_url, 
+          body,
+          {
+            'Content-Type': 'multipart/form-data',
+            'access_token': @token || Asaas::Configuration.token
+          }
+        )
 
         parse_response
       end

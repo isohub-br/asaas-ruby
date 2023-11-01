@@ -57,9 +57,11 @@ module Asaas
       end
 
       def parse_response
-        res =  @response.response_code
+        # compatible with RestClient response
+        code = @response.respond_to?(:response_code) ? @response.response_code : @response.code
+        res =  code
         puts res if Asaas::Configuration.debug
-        case @response.response_code
+        case code
           when 200
             res = response_success
           when 400
