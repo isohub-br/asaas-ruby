@@ -1,17 +1,18 @@
 module Asaas
   class ReceivableAnticipation < Model
-    attribute :id, Types::Coercible::String
+    attribute :id, Types::Coercible::String.optional.default(nil)
     attribute :installment, Types::Coercible::String.optional.default(nil)
     attribute :payment, Types::Coercible::String.optional.default(nil)
-    attribute :status, Types::Coercible::String
-    attribute :anticipationDate, Types::Coercible::String
-    attribute :dueDate, Types::Coercible::String
-    attribute :requestDate, Types::Coercible::String
-    attribute :fee, Types::Coercible::String
-    attribute :anticipationDays, Types::Coercible::String
-    attribute :netValue, Types::Coercible::String
-    attribute :totalValue, Types::Coercible::String
-    attribute :value, Types::Coercible::String
-    attribute :denialObservation, Types::Coercible::String
+    attribute :status, Types::Coercible::String.optional.default(nil)
+    attribute :anticipationDate, Types::Coercible::String.optional.default(nil)
+    attribute :dueDate, Types::Coercible::String.optional.default(nil)
+    attribute :requestDate, Types::Coercible::String.optional.default(nil)
+    attribute :fee, Types::Coercible::String.optional.default(nil)
+    attribute :anticipationDays, Types::Coercible::String.optional.default(nil)
+    attribute :netValue, Types::Coercible::String.optional.default(nil)
+    attribute :totalValue, Types::Coercible::String.optional.default(nil)
+    attribute :value, Types::Coercible::String.optional.default(nil)
+    attribute :denialObservation, Types::Coercible::String.optional.default(nil)
+    attribute :isDocumentationRequired, Types::Coercible::String.optional.default(nil)
   end
 end

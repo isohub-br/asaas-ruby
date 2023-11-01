@@ -6,6 +6,8 @@ module Asaas
       end
 
       def create(body)
+        @default_class = Asaas::ReceivableAnticipation
+
         @response = Typhoeus::Request.new(
           parse_url,
           method: :post,
@@ -22,6 +24,7 @@ module Asaas
 
       def simulate(body)
         @route = '/anticipations/simulate'
+        @default_class = Asaas::ReceivableAnticipation
 
         request(:post, {}, body)
         parse_response

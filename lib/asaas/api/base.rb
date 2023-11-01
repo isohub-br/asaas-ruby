@@ -8,12 +8,14 @@ module Asaas
       attr_reader :success
       attr_reader :token
       attr_accessor :route
+      attr_accessor :default_class
 
       def initialize(client_token, api_version, route = nil)
         @token    = client_token
         @route    = route
         @api_version = api_version || Asaas::Configuration.api_version
         @endpoint = Asaas::Configuration.get_endpoint(api_version)
+        @default_class = Asaas::Entity::Base
       end
 
       def extract_meta(meta)
@@ -83,7 +85,7 @@ module Asaas
           "Asaas::#{type.classify}".constantize
         end
       rescue
-        Asaas::Entity::Base
+        default_class
       end
 
       def request(method, params = {}, body = nil)
