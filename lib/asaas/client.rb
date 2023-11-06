@@ -47,5 +47,9 @@ module Asaas
     def financial_transactions
       @financial_transactions ||= Asaas::Api::FinancialTransaction.new(@token, @api_version)
     end
+
+    def anticipations
+      @anticipations ||= Asaas::Api::ReceivableAnticipation.new(@token, @api_version)
+    end
   end
 end

@@ -28,6 +28,7 @@ module Asaas
   autoload :Account, 'asaas/models/account'
   autoload :Transfer, 'asaas/models/transfer'
   autoload :FinancialTransaction, 'asaas/models/financial_transaction'
+  autoload :ReceivableAnticipation, 'asaas/models/receivable_anticipation'
 
   class << self
 

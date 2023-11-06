@@ -8,12 +8,14 @@ module Asaas
       attr_reader :success
       attr_reader :token
       attr_accessor :route
+      attr_accessor :default_class
 
       def initialize(client_token, api_version, route = nil)
         @token    = client_token
         @route    = route
         @api_version = api_version || Asaas::Configuration.api_version
         @endpoint = Asaas::Configuration.get_endpoint(api_version)
+        @default_class = Asaas::Entity::Base
       end
 
       def extract_meta(meta)
@@ -55,9 +57,11 @@ module Asaas
       end
 
       def parse_response
-        res =  @response.response_code
+        # compatible with RestClient response
+        code = @response.respond_to?(:response_code) ? @response.response_code : @response.code
+        res =  code
         puts res if Asaas::Configuration.debug
-        case @response.response_code
+        case code
           when 200
             res = response_success
           when 400
@@ -78,12 +82,12 @@ module Asaas
 
       def convert_data_to_entity(type)
         if @api_version == 2
-          "Asaas::Entity::#{type.capitalize}".constantize
+          "Asaas::Entity::#{type.classify}".constantize
         else
-          "Asaas::#{type.capitalize}".constantize
+          "Asaas::#{type.classify}".constantize
         end
       rescue
-        Asaas::Entity::Base
+        default_class
       end
 
       def request(method, params = {}, body = nil)
