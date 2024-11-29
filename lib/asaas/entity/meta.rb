@@ -6,6 +6,9 @@ module Asaas
           if hash.has_key? "object"
             entity = convert_data_to_entity(hash["object"])
             entity.new(hash)
+          elsif hash.has_key?("interrupted") && hash.has_key?("enabled") # webhook implementation is different than others for some reason
+            entity = convert_data_to_entity("webhook")
+            entity.new(hash)
           else
             entity = convert_data_to_entity(hash.keys.first)
             entity.new(hash.values.first)
