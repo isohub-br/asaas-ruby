@@ -6,10 +6,6 @@ module Asaas
         super(token, api_version, '/webhooks')
       end
 
-      def list(params = {})
-        @default_class = Asaas::Webhook
-        super
-      end
     end
   end
 end
