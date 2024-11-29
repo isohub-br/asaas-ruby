@@ -1,7 +1,5 @@
 module Asaas
   class Webhook < Model
-    transform_keys(&:to_sym)
-
     attribute :id, Types::Coercible::String.optional.default(nil)
     attribute :url, Types::Coercible::String.optional.default { Asaas::Configuration.webhook_url }
     attribute :email, Types::Coercible::String.optional.default { Asaas::Configuration.webhook_email }
