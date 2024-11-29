@@ -6,5 +6,6 @@ module Asaas
     attribute :apiVersion, Types::Coercible::Integer.optional.default {Asaas::Configuration.api_version }
     attribute :enabled, Types::Bool.optional.default(nil)
     attribute :interrupted, Types::Bool.optional.default(nil)
+    attribute :events, Array
   end
 end
